@@ -1,7 +1,7 @@
 # app.py - Main Streamlit Application
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+# plotly removed for compatibility
 import os
 import json
 from datetime import datetime
@@ -427,11 +427,7 @@ elif page == "📊 Application Tracker":
         if len(df) > 0:
             status_counts = df['status'].value_counts().reset_index()
             status_counts.columns = ['Status', 'Count']
-            fig = px.pie(status_counts, values='Count', names='Status', 
-                        title='Application Status Breakdown',
-                        color_discrete_sequence=px.colors.qualitative.Set3)
-            st.plotly_chart(fig, use_container_width=True)
-        
+           st.bar_chart(status_counts.set_index('Status'))
         # Application table
         st.subheader("All Applications")
         
