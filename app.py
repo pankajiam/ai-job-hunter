@@ -427,7 +427,7 @@ elif page == "📊 Application Tracker":
         if len(df) > 0:
             status_counts = df['status'].value_counts().reset_index()
             status_counts.columns = ['Status', 'Count']
-           st.bar_chart(status_counts.set_index('Status'))
+            st.bar_chart(status_counts.set_index('Status'))
         # Application table
         st.subheader("All Applications")
         
